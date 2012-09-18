@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Service Monitor</title>
+	<link rel="stylesheet" href="./js/monitor/themes/monitor.css" media="screen">
+	<link rel="stylesheet" href="./js/dojo/dijit/themes/claro/claro.css"
+		  media="screen">
+	<!-- load dojo and provide config via data attribute -->
+	<script src="./js/config.js"></script>
+	<script src="./js/d3.js"></script>
+	<script src="./js/chart.js"></script>
+	<script src="./js/dojo/dojo/dojo.js">
+	</script>
+
+	<script src="/monitor/socket.io/socket.io.js"></script>
+	<script>
+		require([
+			"dojo/ready",
+			"monitor/clusterClient",
+			"monitor/servicePane",
+			"monitor/logPane",
+			"dojo/_base/array",
+			"dojo/_base/window",
+			"dojo/_base/connect",
+			"dojo/dom-construct",
+			"dojo/dom-class",
+			"dijit/layout/BorderContainer",
+			"dijit/layout/TabContainer",
+			"dijit/layout/StackContainer",
+			"dijit/layout/StackController",
+			"dijit/layout/ContentPane",
+			"dojo/parser"], function (ready, client, ServicePane, LogPane, array, window, connect, dom, css) {
+
+			var createServicePane = function (title, running) {
+				try {
+					return serviceContainer.addChild(new ServicePane({name:title, running:running}));
+				} catch (e) {
+					errorHandler(e);
+				}
+			};
+
+			var errorHandler = function (err) {
+				console.error(err.stack);
+			};
+
+
+			ready(function () {
+				client.logs().then(function (logs) {
+					logs.logs.forEach(function (log) {
+						this.logContainer.addChild(new LogPane({path:log}));
+					});
+				}, errorHandler);
+				client.services().then(function (res) {
+					var services = res.services;
+					client.list().then(function (running) {
+						var running = running.running;
+						res.services.forEach(function (service) {
+							createServicePane(service, array.indexOf(running, service) != -1);
+						});
+					}, errorHandler);
+				}, errorHandler)
+			});
+		});
+	</script>
+</head>
+<body class="claro">
+<div class="appContainer" data-dojo-type="dijit.layout.BorderContainer">
+	<div class="navPane" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region : 'top'">
+		<span data-dojo-type="dijit.layout.StackController" data-dojo-props="containerId:'stackContainer'"></span>
+	</div>
+	<div class="center" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region : 'center'">
+		<div data-dojo-type="dijit.layout.StackContainer" id="stackContainer">
+			<div data-dojo-id="serviceContainer" title="Services" class="serviceContainer" data-dojo-type="dijit.layout.TabContainer" tabPosition="left-h">
+			</div>
+			<div data-dojo-id="logContainer" title="Logs" data-dojo-type="dijit.layout.TabContainer" class="logContainer">
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

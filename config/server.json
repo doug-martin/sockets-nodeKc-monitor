@@ -1,0 +1,7 @@
+{
+    "monitor":{
+        "port":8088,
+        "host":"localhost",
+        "services":{}
+    }
+}

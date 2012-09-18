@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+var fs = require("fs"),
+        path = require("path"),
+        comb = require("comb"),
+        string = comb.string,
+        ocapCluster = require("../index");
+var program = require('commander');
+
+program
+        .version('0.0.1')
+        .option('-c, --configuration <path>', 'configuration file')
+        .option('--start [string]', 'start server')
+        .parse(process.argv);
+
+var CONFIG = {};
+if (program.configuration) {
+    var f = path.resolve(program.configuration);
+    CONFIG = require(f);
+}
+
+
+if (program.start) {
+    ocapCluster.startServer(CONFIG);
+}else{
+    console.log(program.helpInformation());
+    process.exit();
+}
+
+
+
+
+
+

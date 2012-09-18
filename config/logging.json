@@ -1,0 +1,17 @@
+{
+    "logging":{
+        "monitor":{
+            "level":"ERROR",
+            "appenders":[
+                {
+                    "type":"RollingFileAppender",
+                    "file":"/var/log/monitor/monitor.log"
+                },
+                {
+                    "type":"ConsoleAppender"
+                }
+            ]
+
+        }
+    }
+}

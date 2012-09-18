@@ -1,0 +1,29 @@
+{
+  "name": "monitor",
+  "private": true,
+  "description": "Socket examples",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:doug-martin/sockets-nodekc.git"
+  },
+  "author": "Doug Martin",
+  "main": "index.js",
+  "dependencies": {
+    "comb": "0.1.8",
+    "request": "2.9.153",
+    "commander": "0.5.2",
+    "gofigure": "0.0.2",
+    "socket.io": "~0.9.10",
+    "express": "~3.0.0rc4"
+  },
+  "bin": {
+    "monitor": "./bin/monitor"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "engines": {
+    "node": ">= 0.6.0"
+  }
+}
