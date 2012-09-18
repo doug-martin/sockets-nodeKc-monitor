@@ -1,0 +1,46 @@
+.logPane {
+   position: relative;
+    overflow : auto;
+}
+
+.logPane .logPaneToolbar {
+    height : 50px;
+    position: fixed;
+    right : 50px;
+    top : 20px;
+    background: transparent;
+}
+
+.logPane .logPaneContent {
+    width: 99%;
+    min-height:99%;
+    padding: 10px;
+    background: black !important;
+
+}
+
+.logPane .logPaneContent  .logLine {
+    font-size: 9pt;
+    font-family: arial;
+    color: #00ff00 !important;
+}
+
+.logPane .logPaneContent .debugLogLine {
+    color: #cc56ce !important;
+}
+
+.logPane .logPaneContent .traceLogLine {
+    color: #00ffff !important;
+}
+
+.logPane .logPaneContent .errorLogLine {
+    color: red !important;
+}
+
+.logPane .logPaneContent .fatalLogLine {
+    color: #8b0000 !important;
+}
+
+.logPane .logPaneContent .warnLogLine {
+    color: #ffff00 !important;
+}

@@ -1,0 +1,109 @@
+.servicePane {
+    padding: 20px;
+    overflow: auto;
+    height : 100%;
+    width : 100%;
+}
+
+.servicePaneTitle {
+    font-size: 16pt;
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.servicePane .action {
+    background-image: url("./images/start.png");
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background-position: center;
+}
+
+.servicePane .statusNode .key {
+    font-size: 14pt;
+    text-decoration: underline;
+    height: 26px;
+    display: inline-block;
+}
+
+.servicePane .statusNode .val {
+    font-size: 12pt;
+}
+
+.servicePane .action {
+    background-image: url("./images/start.png");
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background-position: center;
+}
+
+.servicePane .restart,
+.servicePane .status {
+    display: none;
+}
+
+.servicePaneRunning {
+}
+
+.servicePaneRunning .action {
+    background-image: url("./images/stop.png");
+}
+
+.servicePaneRunning .restart {
+    display: inline-block;
+    background-image: url("./images/restart.png");
+}
+
+.servicePaneRunning .status {
+    display: inline-block;
+    background-image: url("./images/status.png");
+}
+
+.servicePane .chart path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.servicePane .chart .legend {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.servicePane .chart line {
+    stroke: black;
+}
+
+.servicePane .chart .rssLine,
+.servicePane .chart .dotRss {
+    stroke: green;
+}
+
+.servicePane .chart .heapTotalLine,
+.servicePane .chart .dotHeapTotal {
+    stroke: red;
+}
+
+.servicePane .chart .heapUsedLine,
+.servicePane .chart .dotHeapUsed {
+    stroke: blue;
+}
+
+.servicePane .chart  text {
+    font-family: Arial;
+    font-size: 9pt;
+}
+
+.servicePane .chart .dot {
+    fill: white;
+    stroke-width: 1.5px;
+}
+
+.servicePane .chart .chartTitle{
+    color : #808080;
+    font-weight: bold;
+}

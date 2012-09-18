@@ -1,0 +1,31 @@
+@import "servicePane.css";
+@import "logPane.css";
+
+/* Any demo specific styling needed for this tutorial only */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    font-family: arial;
+}
+
+.appContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.serviceContainer {
+}
+
+.logContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.halfPane {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+}
+

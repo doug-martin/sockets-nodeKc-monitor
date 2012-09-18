@@ -1,0 +1,19 @@
+<div class="logPane">
+	<input class="dijitHidden" type="text" data-dojo-attach-point="top">
+	<div data-dojo-attach-point="toolbar" class="logPaneToolbar">
+		<select data-dojo-attach-point="levelSelect" data-dojo-attach-event="onChange: _setLevelAttr" data-dojo-type="dijit.form.Select">
+			<option value="OFF">OFF</option>
+			<option value="ALL" selected="selected">ALL</option>
+			<option value="DEBUG">DEBUG</option>
+			<option value="TRACE">TRACE</option>
+			<option value="INFO">INFO</option>
+			<option value="WARN">WARN</option>
+			<option value="ERROR">ERROR</option>
+			<option value="FATAL">FATAL</option>
+		</select>
+	</div>
+	<div data-dojo-attach-point="contentNode" class="logPaneContent">
+
+	</div>
+	<input type="text" class="dijitHidden" data-dojo-attach-point="bottom">
+</div>
